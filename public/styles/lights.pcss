@@ -3,6 +3,7 @@
   --lightColor: #fff9b4;
   --shineColor: #fffde2;
   --redColor: #ff3951;
+  --blueColor: #60acff;
   --darkColor: #131a21;
   --greyColor: #8e8e8e;
   --offWhiteColor: #e0e0e0;
@@ -88,6 +89,14 @@ body {
   animation: pulse 1.75s ease-in infinite;
 }
 
+.light--remote {
+  z-index: 10;
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--blueColor);
+  animation: pulse 1.75s ease-in infinite;
+}
+
 .light--pulse {
   animation: pulse 2s ease-in infinite;
 }
@@ -129,7 +138,6 @@ body {
 
 .icon--empty {
   display: block;
-  background-color: var(--darkColor);
 }
 
 .icon--filled {
@@ -153,6 +161,17 @@ body {
   color: var(--greyColor);
   font-size: 1.6rem;
   font-weight: 300;
+}
+
+.counter {
+  font-size: 1.4rem;
+}
+
+.count {
+
+  &.flash {
+    color: var(--lightColor);
+  }
 }
 
 .social {

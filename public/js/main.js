@@ -23,6 +23,18 @@
     };
   };
 
+  var increaseCount = function() {
+    var counter = document.querySelector('.counter');
+    var count = counter.querySelector('.count');
+    var current = Number(count.innerHTML);
+    current++;
+    count.innerHTML = current;
+    count.className += ' flash';
+    setTimeout(function() {
+      count.className = count.className.replace(/flash/g, '');
+    }, 100);
+  };
+
   var initializeLights = function() {
     var container = document.querySelector('.lights');
     var dotSize = 5;
@@ -73,7 +85,7 @@
     };
 
     var add = function(max, className) {
-      max = max || 50;
+      max = max || 1;
       filled_areas.splice(0, filled_areas.length);
 
       var index = 0;
@@ -112,7 +124,7 @@
         el.style.left = rand_x + 'px';
 
         makeItPulse(el);
-
+        increaseCount();
         container.appendChild(el);
       }
     };
@@ -135,7 +147,6 @@
 
     app.socket.on('init', function(data) {
       var numberOfLights = data.length;
-      numberOfLights = numberOfLights >= 50 ? numberOfLights : 50;
       lighter.init(numberOfLights);
     });
 

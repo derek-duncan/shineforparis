@@ -80,7 +80,7 @@ io.on('connection', function(socket){
 
     lightsActions.add(entry).then(light => {
       socket.emit('lit up', 'success');
-      io.emit('someone lit it up', light.ip);
+      socket.broadcast.emit('someone lit it up', light.ip);
     });
   });
 
