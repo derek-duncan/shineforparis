@@ -195,15 +195,36 @@ body {
 
 .social {
   margin: 1rem 0 0;
-}
-
-.twitterShare {
-  display: inline-block;
-  text-decoration: none;
   color: var(--lightColor);
   font-weight: 300;
+}
+
+.social-cry {
+  display: inline-block;
+  padding: 0 1rem 0 0;
+  color: var(--greyColor);
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.twitterShare,
+.facebookShare {
+  display: inline-block;
+  padding: 0 0.5rem;
+  text-decoration: none;
+  color: inherit;
+  font-weight: inherit;
   transition: color 250ms;
   &:hover {
     color: var(--redColor);
+  }
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  &:last-child {
+    padding-right: 0;
   }
 }
