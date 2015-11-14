@@ -7,7 +7,6 @@
 
     trigger.onmouseover = function() {
       if (completed) return;
-      target.className = target.className.replace(/ icon--bounce/g, '');
       target.className += ' icon--grow';
       timer = setTimeout(function() {
         completed = true;
@@ -154,7 +153,8 @@
     });
 
     app.socket.on('already lit up', function(data) {
-      heartFill.className += ' icon--grow done';
+      heartEl.className += ' done';
+      heartFill.className += ' icon--grow';
       social.className = social.className.replace('hide', '');
       lighter.add(1, 'light--local');
     });
