@@ -1,0 +1,40 @@
+:root {
+  /* Colors */
+  --primaryColor: #ff0097;
+  --darkPrimaryColor: #a70063;
+  --textColor: #333;
+  --lightTextColor: #878787;
+
+  --greyColor: #888;
+  --lightGreyColor: #ddd;
+
+  /* Fonts */
+  --sansFont: 'Khula', sans-serif;
+  --serifFont: 'Lora', serif;
+
+  /* Sizes */
+  --maxNavWidth: 80rem;
+  --maxContentWidth: 62rem;
+
+  /* Media Queries */
+  @custom-media --min-medium (min-width: 480px);
+  @custom-media --min-large (min-width: 768px);
+  @custom-media --min-xlarge (min-width: 1024px);
+}
+
+@import 'normalize.css';
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  position: relative;
+  font: 1.6rem var(--serifFont);
+  color: var(--textColor);
+  background-color: #fff;
+}

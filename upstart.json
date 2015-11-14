@@ -1,0 +1,11 @@
+{
+  "name"             : "shineforparis",
+  "script"           : "server.js",
+  "watch"            : ["app.js", "lights"],
+  "ignore_watch"     : ["node_modules", ".git", "views", "public"],
+  "env": {
+    "NODE_PATH": ".",
+    "NODE_ENV": "development"
+  },
+  "node-args": "--harmony"
+}
