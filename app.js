@@ -60,7 +60,7 @@ const server = http.createServer(app.callback());
 let io = socket(server);
 
 io.on('connection', function(socket){
-  let ipAddress = socket.handshake.address;
+  let ipAddress = socket.request.connection.remoteAddress;
 
   lightsActions.list().then(lights => {
     socket.emit('init', lights);
