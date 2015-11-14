@@ -131,6 +131,7 @@
     };
 
     var init = function(lightMax) {
+      container.innerHTML = '';
       add(lightMax);
     };
 
