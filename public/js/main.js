@@ -24,12 +24,12 @@
     };
   };
 
-  var increaseCount = function() {
+  var increaseCount = function(override) {
     var counter = document.querySelector('.counter');
     var count = counter.querySelector('.count');
     var current = Number(count.innerHTML);
     current++;
-    count.innerHTML = current;
+    count.innerHTML = override || current;
     count.className += ' flash';
     setTimeout(function() {
       count.className = count.className.replace(/flash/g, '');
@@ -132,6 +132,7 @@
 
     var init = function(lightMax) {
       container.innerHTML = '';
+      increaseCount(0);
       add(lightMax);
     };
 
