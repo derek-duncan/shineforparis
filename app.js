@@ -61,23 +61,32 @@ const server = http.createServer(app.callback());
 let io = socket(server);
 
 io.on('connection', function(socket){
+  let ipAddress = socket.handshake.address;
+
   lightsActions.list().then(lights => {
     socket.emit('init', lights);
+  });
+
+  lightsActions.exists(ipAddress).then(exists => {
+    if (exists) {
+      socket.emit('already lit up', true);
+    }
   });
 
   socket.on('light it up', data => {
 
     let entry = {
-      ipAddress: socket.handshake.address
+      ipAddress: ipAddress
     };
 
     lightsActions.add(entry).then(light => {
-      socket.emit('more light', light);
+      socket.emit('lit up', 'success');
+      io.emit('someone lit it up', light.ip);
     });
   });
 
   socket.on('disconnect', function() {
-    console.log('user disconnected');
+    // User is gone
   });
 });
 

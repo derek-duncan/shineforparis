@@ -1,4 +1,11 @@
 extends ./templates/default.jade
 
 block body
-  h1 #lightsforparis
+  .lights
+  main.main-content
+    section.centerFeature
+      .heartButton
+        img.icon.icon--empty(src='/img/heart-icon-empty.svg' onerror='this.src="/img/heart-icon-empty.png"' alt='Send a Light' width='200')
+        img.icon.icon--filled(src='/img/heart-icon-filled.svg' onerror='this.src="/img/heart-icon-filled.png"' alt='Send a Light' width='200')
+      h1.hashtag #shineonparis
+      p.tagline Our hearts are shining on you

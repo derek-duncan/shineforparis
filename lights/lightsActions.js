@@ -3,6 +3,14 @@ import mongoose from 'mongoose';
 
 import Light from './lightsModel.js';
 
+let actions = {
+  list: list,
+  add: add,
+  exists: exists
+};
+
+export default actions;
+
 /**
  * List
  */
@@ -18,6 +26,10 @@ function list() {
  */
 function add(data) {
   return co(function *() {
+
+    let exists = yield actions.exists();
+    if (exists) throw new Error('light exists');
+
     let light = new Light({
       ip: data.ipAddress
     });
@@ -31,9 +43,12 @@ function add(data) {
   });
 }
 
-let actions = {
-  list: list,
-  add: add
-};
-
-export default actions;
+/**
+ * Exists
+ */
+function exists(ip) {
+  return co(function *() {
+    let exists = yield Light.findOne({ id: exists });
+    return exists ? true : false;
+  });
+}

@@ -1,20 +1,14 @@
 :root {
   /* Colors */
-  --primaryColor: #ff0097;
-  --darkPrimaryColor: #a70063;
-  --textColor: #333;
-  --lightTextColor: #878787;
-
-  --greyColor: #888;
-  --lightGreyColor: #ddd;
+  --lightColor: #fff9b4;
+  --shineColor: #fffde2;
+  --redColor: #ff3951;
+  --darkColor: #131a21;
+  --greyColor: #8e8e8e;
+  --offWhiteColor: #e0e0e0;
 
   /* Fonts */
-  --sansFont: 'Khula', sans-serif;
-  --serifFont: 'Lora', serif;
-
-  /* Sizes */
-  --maxNavWidth: 80rem;
-  --maxContentWidth: 62rem;
+  --sansFont: 'source sans pro', sans-serif;
 
   /* Media Queries */
   @custom-media --min-medium (min-width: 480px);
@@ -29,12 +23,134 @@
 }
 
 html {
+  height: 100%;
   font-size: 62.5%;
 }
 
 body {
   position: relative;
-  font: 1.6rem var(--serifFont);
-  color: var(--textColor);
-  background-color: #fff;
+  height: 100%;
+  background: var(--darkColor) url(/img/paris-outline.png) no-repeat fixed center;
+  background-size: 90%;
+  color: var(--offWhiteColor);
+  font: 1.6rem var(--sansFont);
+
+  @media (--min-medium) {
+    background-size: 50%;
+  }
+}
+
+.lights {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.light {
+  position: absolute;
+  width: 0.5rem;
+  height: 0.5rem;
+  overflow: hidden;
+  background-color: var(--lightColor);
+  border-radius: 50%;
+  cursor: default;
+  transform: scale(1);
+  transition: transform 250ms ease-in;
+
+  &:hover {
+    transform: scale(1.75);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.1, 0.1);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2, 1.2);
+    opacity: 0;
+  }
+}
+
+.light--local {
+  z-index: 10;
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--redColor);
+  animation: pulse 1s ease-in infinite;
+}
+
+.light--pulse {
+  animation: pulse 2s ease-in infinite;
+}
+
+.main-content {
+  display: table;
+  width: 30rem;
+  height: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.centerFeature {
+  position: relative;
+  z-index: 10;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.heartButton {
+  position: relative;
+  width: 15rem;
+  height: 12.5rem;
+  margin: 0 auto 2rem;
+  cursor: pointer;
+
+  &.done {
+    cursor: default;
+  }
+}
+
+.icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: transform 1s cubic-bezier(0, 0, 1, -0.5);
+}
+
+.icon--empty {
+  display: block;
+  background-color: var(--darkColor);
+}
+
+.icon--filled {
+  transform: scale(0.1);
+
+  &.icon--grow {
+    transform: scale(1);
+  }
+}
+
+.hashtag {
+  margin: 0;
+  padding: 0;
+  font-size: 4.2rem;
+  font-weight: 400;
+}
+
+.tagline {
+  padding: 0;
+  margin: 0;
+  color: var(--greyColor);
+  font-size: 1.6rem;
+  font-weight: 300;
 }
