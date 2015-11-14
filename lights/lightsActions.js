@@ -48,7 +48,7 @@ function add(data) {
  */
 function exists(ip) {
   return co(function *() {
-    let exists = yield Light.findOne({ id: exists });
+    let exists = yield Light.findOne({ ip: ip });
     return exists ? true : false;
   });
 }

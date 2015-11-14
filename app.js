@@ -60,7 +60,9 @@ const server = http.createServer(app.callback());
 let io = socket(server);
 
 io.on('connection', function(socket){
-  let ipAddress = socket.request.connection.remoteAddress;
+  console.log(socket.request.headers)
+  let ipAddress = socket.request.headers['x-forwarded-for'] || socket.request.connection.remoteAddress;
+  console.log(ipAddress);
 
   lightsActions.list().then(lights => {
     socket.emit('init', lights);
