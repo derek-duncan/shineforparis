@@ -3,7 +3,6 @@
 // Dependencies
 import Koa from 'koa';
 import logger from 'koa-logger';
-import mount from 'koa-mount';
 import convert from 'koa-convert';
 import serve from 'koa-static-cache';
 import co from 'co';
