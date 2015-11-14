@@ -7,6 +7,7 @@
 
     trigger.onmouseover = function() {
       if (completed) return;
+      target.className = target.className.replace(/ icon--bounce/g, '');
       target.className += ' icon--grow';
       timer = setTimeout(function() {
         completed = true;
@@ -17,7 +18,8 @@
 
     trigger.onmouseout = function() {
       if (!completed) {
-        target.className = target.className.replace('icon--grow', '');
+        target.className = target.className.replace(' icon--grow', '');
+        target.className += ' icon--bounce';
         clearTimeout(timer);
       }
     };
@@ -143,6 +145,7 @@
     var app = window.app;
     var heartEl = document.querySelector('.heartButton');
     var heartFill = heartEl.querySelector('.icon--filled');
+    var social = document.querySelector('.social');
     var lighter = initializeLights();
 
     app.socket.on('init', function(data) {
@@ -152,10 +155,12 @@
 
     app.socket.on('already lit up', function(data) {
       heartFill.className += ' icon--grow done';
+      social.className = social.className.replace('hide', '');
       lighter.add(1, 'light--local');
     });
 
     app.socket.on('lit up', function(data) {
+      social.className = social.className.replace('hide', '');
       lighter.add(1, 'light--local');
     });
 

@@ -6,11 +6,11 @@ block body
     section.centerFeature
       .heartButton
         img.icon.icon--empty(src='/img/heart-icon-empty.svg' onerror='this.src="/img/heart-icon-empty.png"' alt='Send a Light' width='200')
-        img.icon.icon--filled(src='/img/heart-icon-filled.svg' onerror='this.src="/img/heart-icon-filled.png"' alt='Send a Light' width='200')
+        img.icon.icon--filled.icon--bounce(src='/img/heart-icon-filled.svg' onerror='this.src="/img/heart-icon-filled.png"' alt='Send a Light' width='200')
       h1.hashtag #shineonparis
       p.tagline Our hearts are shining on you, Paris <3
       p.counter
         span.count 0
         |  lights shone.
-      .social
+      .social.hide
         a(href="http://twitter.com/intent/tweet?url=http://shineonparis.com/&text=Our hearts are with Paris today. Here's how I'm letting them know ->&hashtags=shineonparis,ParisAttacks,RTforParis" target='_blank' class='twitterShare') Tweet
