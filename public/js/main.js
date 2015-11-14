@@ -69,7 +69,7 @@
     var makeItPulse = function(el) {
       return setTimeout(function() {
         el.className += ' light--pulse';
-      }, Math.floor(Math.random() * 1000) + 1);
+      }, Math.floor(Math.random() * 2000) + 1);
     };
 
     var add = function(max, className) {

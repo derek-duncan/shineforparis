@@ -85,7 +85,7 @@ body {
   width: 2rem;
   height: 2rem;
   background-color: var(--redColor);
-  animation: pulse 1s ease-in infinite;
+  animation: pulse 1.75s ease-in infinite;
 }
 
 .light--pulse {
@@ -153,4 +153,19 @@ body {
   color: var(--greyColor);
   font-size: 1.6rem;
   font-weight: 300;
+}
+
+.social {
+  margin: 1rem 0 0;
+}
+
+.twitterShare {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--lightColor);
+  font-weight: 300;
+  transition: color 250ms;
+  &:hover {
+    color: var(--redColor);
+  }
 }
